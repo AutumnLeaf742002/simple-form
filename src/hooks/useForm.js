@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-export const useForm = (state = {}) => {
+export const useForm = (initialForm = {}) => {
 
-    const [stateForm, setStateForm] = useState(state)
+    const [stateForm, setStateForm] = useState(initialForm)
 
     const onChange = (e)=>{
         setStateForm({...stateForm, [e.target.name]: e.target.value})
@@ -18,5 +18,9 @@ export const useForm = (state = {}) => {
         return domains.some(domain => email.includes(domain))
     }
 
-    return {...stateForm, onChange, validateEmailFormat}
+    const onResetForm = ()=>{
+        setStateForm(initialForm)
+    }
+
+    return {...stateForm, onChange, validateEmailFormat, onResetForm}
 }

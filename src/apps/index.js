@@ -1,3 +1,5 @@
 export * from './CounterApp'
 export * from './CounterWhitCustomHook'
 export * from './SimpleForm'
+export * from './SimpleFormHook'
+export * from './PokeApi'
